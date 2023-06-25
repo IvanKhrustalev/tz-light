@@ -2,8 +2,6 @@ package com.example.tzlight.service.impl;
 
 import com.example.tzlight.entity.Role;
 import com.example.tzlight.entity.User;
-import com.example.tzlight.reporitory.AdminRepository;
-import com.example.tzlight.reporitory.ParticipantRepository;
 import com.example.tzlight.reporitory.RegistrationUserRepository;
 import com.example.tzlight.service.adstract.RegistrationUserService;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,21 +11,18 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class RegistrationRegistrationUserServiceImpl implements RegistrationUserService {
     private final RegistrationUserRepository registrationUserRepository;
     private final PasswordEncoder passwordEncoder;
-    private final AdminRepository adminRepository;
-    private final ParticipantRepository participantRepository;
 
-    public RegistrationRegistrationUserServiceImpl(RegistrationUserRepository registrationUserRepository, PasswordEncoder passwordEncoder, AdminRepository adminRepository, ParticipantRepository participantRepository) {
+
+    public RegistrationRegistrationUserServiceImpl(RegistrationUserRepository registrationUserRepository, PasswordEncoder passwordEncoder) {
         this.registrationUserRepository = registrationUserRepository;
         this.passwordEncoder = passwordEncoder;
-        this.adminRepository = adminRepository;
-        this.participantRepository = participantRepository;
+
     }
 
     @Override
